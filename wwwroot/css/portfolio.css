@@ -1,0 +1,166 @@
+﻿/* -----------------------------------
+   ORBIT STYLE HERO
+------------------------------------*/
+.orbit-hero {
+    max-width: 1200px;
+    margin: 80px auto 40px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    animation: fadeHeroOrbit 0.7s ease-out;
+}
+
+/* LEFT TEXT SIDE ----------------------------------*/
+.orbit-left {
+    flex: 1;
+}
+
+.orbit-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #222;
+}
+
+    .orbit-title span {
+        color: #6c63ff; /* Orbit purple highlight */
+    }
+
+.orbit-subtitle {
+    font-size: 20px;
+    margin: 20px 0 35px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* BUTTONS ----------------------------------*/
+.orbit-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.orbit-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+.orbit-btn-alt {
+    font-size: 16px;
+    text-transform: none;
+}
+
+/* RIGHT IMAGE SIDE ----------------------------------*/
+.orbit-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.orbit-img-wrap {
+    position: relative;
+    width: 340px;
+    height: 340px;
+}
+
+    .orbit-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%; /* orbit circular photo */
+        animation: floatImgOrbit 4s ease-in-out infinite;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+
+/* ORBIT FLOATING DECOR CIRCLES ----------------------*/
+.orbit-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(108, 99, 255, 0.15);
+    animation: floatCircle 6s infinite ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+.circle-1 {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    right: -20px;
+}
+
+.circle-2 {
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    left: -15px;
+}
+
+.circle-3 {
+    width: 55px;
+    height: 55px;
+    bottom: -20px;
+    right: 0;
+}
+
+/* ANIMATIONS ----------------------------------*/
+@keyframes fadeHeroOrbit {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatImgOrbit {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes floatCircle {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
+
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* RESPONSIVE ----------------------------------*/
+@media (max-width: 900px) {
+    .orbit-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 120px;
+    }
+
+    .orbit-img-wrap {
+        width: 260px;
+        height: 260px;
+    }
+
+    .orbit-title {
+        font-size: 42px;
+    }
+}

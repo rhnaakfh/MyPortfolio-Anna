@@ -1,0 +1,36 @@
+﻿@page "/"
+@using MudBlazor
+
+<div class="orbit-hero aos-fade-up">
+    <div class="orbit-left">
+
+        <h1 class="orbit-title">
+            Hello, I'm <span>Anna</span>
+        </h1>
+
+        <p class="orbit-subtitle">
+            Full Stack Software Developer specializing in
+            <strong>.NET, Blazor, SQL optimization</strong> and scalable enterprise systems.
+        </p>
+
+        <div class="orbit-buttons">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/projects" Class="orbit-btn">
+                View My Projects
+            </MudButton>
+
+            <MudButton Variant="Variant.Text" Color="Color.Primary" Href="/about" Class="orbit-btn-alt">
+                About Me
+            </MudButton>
+        </div>
+
+    </div>
+
+    <div class="orbit-right">
+        <div class="orbit-img-wrap">
+            <img src="images/3.jpeg" alt="Profile">
+            <span class="orbit-circle circle-1"></span>
+            <span class="orbit-circle circle-2"></span>
+            <span class="orbit-circle circle-3"></span>
+        </div>
+    </div>
+</div>

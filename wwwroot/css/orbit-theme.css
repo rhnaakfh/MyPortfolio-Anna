@@ -1,0 +1,480 @@
+﻿/* ==========================================================
+   ORBIT THEME — FULL CSS FILE
+   Modern, animated portfolio theme for Blazor + MudBlazor
+   Includes:
+   - Light / Dark theme
+   - Navbar
+   - Hero
+   - About (with animated icons)
+   - Skills / Experience / Projects / Contact / Footer
+   - Entrance Animations
+========================================================== */
+
+
+/* ==========================================================
+   THEME VARIABLES
+========================================================== */
+:root {
+    --orbit-bg: #f8f9fc;
+    --orbit-surface: #ffffff;
+    --orbit-text: #222222;
+    --orbit-text-muted: #666666;
+    --orbit-accent: #6c63ff;
+    --orbit-border: rgba(0,0,0,0.06);
+    --orbit-hero-title: #222222;
+    --orbit-hero-subtitle: #555555;
+    --orbit-footer-bg: #ffffff;
+    --orbit-footer-text: #777777;
+}
+
+/* DARK MODE */
+body.orbit-dark {
+    --orbit-bg: #050816;
+    --orbit-surface: #0f172a;
+    --orbit-text: #e5e7eb;
+    --orbit-text-muted: #9ca3af;
+    --orbit-accent: #a855f7;
+    --orbit-border: rgba(148, 163, 184, 0.3);
+    --orbit-hero-title: #f9fafb;
+    --orbit-hero-subtitle: #9ca3af;
+    --orbit-footer-bg: #020617;
+    --orbit-footer-text: #9ca3af;
+}
+
+
+/* ==========================================================
+   GLOBAL BASE
+========================================================== */
+html, body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--orbit-bg);
+    color: var(--orbit-text);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+/* ==========================================================
+   GLOBAL PAGE ENTER TRANSITION
+========================================================== */
+.page-enter {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+/* ==========================================================
+   NAVBAR
+========================================================== */
+.orbit-navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-bottom: 1px solid var(--orbit-border);
+}
+
+body.orbit-dark .orbit-navbar {
+    background-color: rgba(15, 23, 42, 0.85);
+}
+
+.nav-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.orbit-logo {
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: var(--orbit-text) !important;
+}
+
+.orbit-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.orbit-nav-link {
+    font-weight: 600;
+    color: var(--orbit-text) !important;
+    transition: color 0.2s, transform 0.2s;
+}
+
+    .orbit-nav-link:hover {
+        color: var(--orbit-accent) !important;
+        transform: translateY(-2px);
+    }
+
+    .orbit-nav-link.mud-nav-link-active {
+        color: var(--orbit-accent) !important;
+        font-weight: 700;
+    }
+
+
+/* ==========================================================
+   PAGE WRAPPER
+========================================================== */
+.main-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-body {
+    flex-grow: 1;
+    padding: 40px 20px;
+    margin-top: 90px;
+}
+
+
+/* ==========================================================
+   SECTION WRAPPER
+========================================================== */
+.orbit-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.orbit-section-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 auto 25px;
+    position: relative;
+}
+
+    .orbit-section-title::after {
+        content: "";
+        width: 60px;
+        height: 4px;
+        background: var(--orbit-accent);
+        display: block;
+        margin: 12px auto 0;
+        border-radius: 2px;
+    }
+
+
+/* ==========================================================
+   ABOUT SECTION
+========================================================== */
+.orbit-about-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Image wrapper for icons + glow + ring */
+.orbit-about-img-wrap {
+    position: relative;
+    width: 260px;
+    height: 260px;
+}
+
+/* Main portrait */
+.orbit-about-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: floatImg 4s ease-in-out infinite;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+body.orbit-dark .orbit-about-img {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.25);
+}
+
+/* Animated Ring */
+.orbit-ring {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px dashed var(--orbit-accent);
+    border-radius: 50%;
+    top: -20px;
+    left: -20px;
+    opacity: 0.35;
+    animation: spin 14s linear infinite;
+}
+
+body.orbit-dark .orbit-ring {
+    border-color: rgba(168, 85, 247, 0.6);
+}
+
+/* Ambient blurred glow */
+.orbit-ambient {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: var(--orbit-accent);
+    filter: blur(55px);
+    opacity: 0.5;
+    z-index: -1;
+    animation: ambientPulse 6s ease-in-out infinite;
+}
+
+body.orbit-dark .orbit-ambient {
+    opacity: 0.7;
+    filter: blur(70px);
+}
+
+/* Floating skill icons */
+.orbit-icon {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--orbit-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orbit-accent);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    animation: floatIcon 5s ease-in-out infinite;
+    opacity: 0;
+    transform: scale(0.6);
+}
+
+body.orbit-dark .orbit-icon {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
+}
+
+/* Icon positions */
+.icon-1 {
+    top: -20px;
+    right: -20px;
+}
+
+.icon-2 {
+    bottom: 10px;
+    left: -25px;
+    animation-delay: 0.3s;
+}
+
+.icon-3 {
+    bottom: -25px;
+    right: 0;
+    animation-delay: 0.6s;
+}
+
+/* About text */
+.orbit-about-text {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+    .orbit-about-text p {
+        color: var(--orbit-text-muted);
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+
+/* ==========================================================
+   SKILLS GRID
+========================================================== */
+.orbit-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+
+.orbit-skill-card {
+    background: var(--orbit-surface);
+    border: 1px solid var(--orbit-border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+    .orbit-skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+    }
+
+
+/* ==========================================================
+   EXPERIENCE TIMELINE
+========================================================== */
+.orbit-timeline {
+    position: relative;
+    padding-left: 25px;
+}
+
+    .orbit-timeline::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--orbit-border);
+    }
+
+.orbit-timeline-item {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--orbit-accent);
+    position: absolute;
+    left: -3px;
+    top: 3px;
+}
+
+.orbit-timeline-period {
+    color: var(--orbit-text-muted);
+}
+
+
+/* ==========================================================
+   PROJECT CARD GRID
+========================================================== */
+.orbit-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 20px;
+}
+
+.orbit-project-card {
+    background: var(--orbit-surface);
+    border: 1px solid var(--orbit-border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+    .orbit-project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(0,0,0,0.10);
+    }
+
+
+/* ==========================================================
+   CONTACT
+========================================================== */
+.orbit-contact-box {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--orbit-surface);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid var(--orbit-border);
+    text-align: center;
+}
+
+.orbit-contact-email {
+    font-size: 18px;
+    margin: 12px 0 20px;
+}
+
+.orbit-contact-links a {
+    color: var(--orbit-accent);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+.orbit-footer {
+    background: var(--orbit-footer-bg);
+    color: var(--orbit-footer-text);
+    padding: 20px;
+    border-top: 1px solid var(--orbit-border);
+    text-align: center;
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+@keyframes floatImg {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatIcon {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-12px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ambientPulse {
+    0% {
+        transform: scale(1);
+        opacity: .45;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: .65;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: .45;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE FIXES
+========================================================== */
+@media (max-width: 900px) {
+    .orbit-about-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+}

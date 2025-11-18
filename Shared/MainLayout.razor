@@ -1,0 +1,14 @@
+﻿@using MudBlazor
+@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<div class="main-wrapper">
+    <NavMenu />
+    <div class="page-body">
+        @Body
+    </div>
+    <Footer />
+</div>

@@ -1,0 +1,45 @@
+﻿@using MudBlazor
+@inject IJSRuntime JS
+
+<MudAppBar Elevation="0" Class="orbit-navbar nav-sticky">
+
+    <!-- Logo -->
+    <MudText Typo="Typo.h5" Class="orbit-logo">Anna Portfolio</MudText>
+
+    <MudSpacer />
+
+    <!-- FIXED: Replace MudNavMenu → custom horizontal nav -->
+    <div class="orbit-nav-links">
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Class="orbit-nav-link">Home</MudNavLink>
+        <MudNavLink Href="/about" Class="orbit-nav-link">About</MudNavLink>
+        <MudNavLink Href="/skills" Class="orbit-nav-link">Skills</MudNavLink>
+        <MudNavLink Href="/experience" Class="orbit-nav-link">Experience</MudNavLink>
+        <MudNavLink Href="/projects" Class="orbit-nav-link">Projects</MudNavLink>
+        <MudNavLink Href="/contact" Class="orbit-nav-link">Contact</MudNavLink>
+    </div>
+
+    <!-- Dark/Light Toggle -->
+    <MudIconButton Icon="@(_isDark ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)"
+                   Color="Color.Inherit"
+                   OnClick="ToggleTheme"
+                   Class="orbit-theme-toggle" />
+
+</MudAppBar>
+
+@code {
+    private bool _isDark = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("setThemeMode", _isDark);
+        }
+    }
+
+    private async Task ToggleTheme()
+    {
+        _isDark = !_isDark;
+        await JS.InvokeVoidAsync("setThemeMode", _isDark);
+    }
+}
