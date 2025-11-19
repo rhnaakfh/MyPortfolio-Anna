@@ -1,0 +1,39 @@
+﻿/* FOOTER WRAPPER */
+.orbit-footer {
+    margin-top: 60px;
+    padding: 28px 20px;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+}
+
+/* Dark mode */
+body.orbit-dark .orbit-footer {
+    background: rgba(15,15,25,0.6);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* CONTENT LAYOUT */
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .95rem;
+    color: var(--orbit-text);
+}
+
+/* ACCENT TEXT */
+.footer-left span {
+    color: var(--orbit-accent);
+    font-weight: 600;
+}
+
+/* SOCIAL ICONS */
+.footer-right a {
+    font-size: 1.2rem;
+    margin-left: 16px;
+    color: var(--orbit-text);
+    transition:

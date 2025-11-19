@@ -4,26 +4,45 @@
 <MudAppBar Elevation="0" Class="orbit-navbar nav-sticky">
 
     <!-- Logo -->
-    <MudText Typo="Typo.h5" Class="orbit-logo">Anna Portfolio</MudText>
+    <MudText Typo="Typo.h5" Class="orbit-logo">
+        Anna Portfolio
+    </MudText>
 
     <MudSpacer />
 
-    <!-- FIXED: Replace MudNavMenu → custom horizontal nav -->
-    <div class="orbit-nav-links">
-        <MudNavLink Href="/" Match="NavLinkMatch.All" Class="orbit-nav-link">Home</MudNavLink>
-        <MudNavLink Href="/about" Class="orbit-nav-link">About</MudNavLink>
-        <MudNavLink Href="/skills" Class="orbit-nav-link">Skills</MudNavLink>
-        <MudNavLink Href="/experience" Class="orbit-nav-link">Experience</MudNavLink>
-        <MudNavLink Href="/projects" Class="orbit-nav-link">Projects</MudNavLink>
-        <MudNavLink Href="/contact" Class="orbit-nav-link">Contact</MudNavLink>
-    </div>
+    <!-- Main Nav -->
+    <nav class="orbit-navmenu">
+        <MudNavLink Href="/" Match="NavLinkMatch.All">
+            Home
+        </MudNavLink>
 
-    <!-- Dark/Light Toggle -->
-    <MudIconButton Icon="@(_isDark ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)"
-                   Color="Color.Inherit"
+        <MudNavLink Href="/about">
+            About
+        </MudNavLink>
+
+        <MudNavLink Href="/skills">
+            Skills
+        </MudNavLink>
+
+        <MudNavLink Href="/experience">
+            Experience
+        </MudNavLink>
+
+        <MudNavLink Href="/projects">
+            Projects
+        </MudNavLink>
+
+        <MudNavLink Href="/contact">
+            Contact
+        </MudNavLink>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <MudIconButton Class="orbit-theme-toggle"
+                   Icon="@(_isDark ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)"
                    OnClick="ToggleTheme"
-                   Class="orbit-theme-toggle" />
-
+                   Edge="Edge.End"
+                   AriaLabel="Toggle light/dark theme" />
 </MudAppBar>
 
 @code {
@@ -33,6 +52,7 @@
     {
         if (firstRender)
         {
+            // Calls JS function: setThemeMode(isDark)
             await JS.InvokeVoidAsync("setThemeMode", _isDark);
         }
     }

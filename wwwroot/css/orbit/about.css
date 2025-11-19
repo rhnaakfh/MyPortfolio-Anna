@@ -1,0 +1,175 @@
+﻿/* ---------------------------------------------------
+   ABOUT SECTION – Orbit Theme
+----------------------------------------------------*/
+
+.orbit-about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+/* ------------------------------
+   PROFILE IMAGE + GLOW + RING
+------------------------------ */
+
+.orbit-about-img-wrap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+
+.orbit-about-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: floatImg 4s ease-in-out infinite;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+}
+
+body.orbit-dark .orbit-about-img {
+    box-shadow: 0 0 30px rgba(0,255,224,0.25);
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border: 2px dashed var(--orbit-accent);
+    border-radius: 50%;
+    top: -20px;
+    left: -20px;
+    animation: spin 14s linear infinite;
+    opacity: 0.35;
+    z-index: -2;
+}
+
+.orbit-ambient {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: var(--orbit-accent);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: ambientPulse 6s ease-in-out infinite;
+}
+
+/* ------------------------------
+   FLOATING TECH ICONS
+------------------------------ */
+
+.orbit-icon {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    background: var(--orbit-surface);
+    color: var(--orbit-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatIcon 5s ease-in-out infinite;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+.icon-1 {
+    top: -20px;
+    right: -20px;
+}
+
+.icon-2 {
+    bottom: 20px;
+    left: -25px;
+}
+
+.icon-3 {
+    bottom: -25px;
+    right: 0;
+}
+
+/* ------------------------------
+   TEXT CONTENT AREA
+------------------------------ */
+
+.orbit-about-text {
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+.orbit-about-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--orbit-text);
+}
+
+.orbit-about-subhead {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 1rem;
+    color: var(--orbit-accent);
+}
+
+/* ------------------------------
+   TYPING EFFECT
+------------------------------ */
+
+.typing-effect {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--orbit-accent);
+    width: 0;
+    animation: typing 3s steps(40, end) forwards, blinkCursor 0.75s step-end infinite;
+}
+
+
+/* ------------------------------
+   TECH BADGE TAGS
+------------------------------ */
+
+.orbit-tech-tags {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+    .orbit-tech-tags span {
+        background-color: var(--orbit-surface);
+        color: var(--orbit-accent);
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        border-radius: 30px;
+        border: 1px solid var(--orbit-accent);
+        transition: all 0.3s ease;
+    }
+
+        .orbit-tech-tags span:hover {
+            background-color: var(--orbit-accent);
+            color: #fff;
+        }
+
+
+/* ------------------------------
+   RESPONSIVE BEHAVIOR
+------------------------------ */
+
+@media (max-width: 768px) {
+    .orbit-about-grid {
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .orbit-about-img-wrap {
+        margin-bottom: 1rem;
+    }
+
+    .typing-effect {
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,90 @@
+﻿.orbit-section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--orbit-hero-subtitle);
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+/* GRID */
+.orbit-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 32px;
+}
+
+/* CARD */
+.orbit-project-card {
+    position: relative;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(12px);
+    padding: 32px 26px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+    .orbit-project-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+    }
+
+/* ICON */
+.project-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 26px;
+    color: white;
+    animation: floatIconProj 4s ease-in-out infinite;
+}
+
+/* ICON COLORS */
+.project-1 {
+    background: linear-gradient(135deg, #7b5cff, #a88fff);
+}
+
+.project-2 {
+    background: linear-gradient(135deg, #ff6b6b, #ff9472);
+}
+
+.project-3 {
+    background: linear-gradient(135deg, #00b894, #25cca3);
+}
+
+/* TEXT */
+.orbit-project-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.project-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--orbit-hero-subtitle);
+    margin-bottom: 18px;
+}
+
+/* TAGS */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+    .project-tags span {
+        background: rgba(255,255,255,0.12);
+        border-radius: 40px;
+        padding: 6px 14px;
+        font-size: 13px;
+        color: var(--orbit-accent);
+        border: 1px solid rgba(255,255,255,0.16);
+        backdrop-filter: blur(6px);
+    }

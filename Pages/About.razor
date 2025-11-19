@@ -1,49 +1,60 @@
 ﻿@page "/about"
 @using MudBlazor
 
-<div class="orbit-section aos-fade-up">
-    <h2 class="orbit-section-title">About Me</h2>
-
+<section class="orbit-section aos-fade-up">
+@*     <h2 class="orbit-section-title">About Me</h2>
+ *@
     <div class="orbit-about-grid">
+
+        <!-- Left: Image & Effects -->
         <div class="orbit-about-img-wrap">
             <div class="orbit-ring"></div>
-            <!-- Ambient Glow Behind Image -->
             <div class="orbit-ambient"></div>
 
-            <img src="images/3.jpeg" class="orbit-about-img" />
+            <img src="images/3.jpeg" class="orbit-about-img" alt="Anna profile" />
 
-            <!-- Floating icons -->
+            <!-- Floating Icons -->
             <div class="orbit-icon icon-1">
                 <MudIcon Icon="@Icons.Material.Filled.Code" />
             </div>
-
             <div class="orbit-icon icon-2">
+                <MudIcon Icon="@Icons.Material.Filled.CloudQueue" />
+            </div>
+            <div class="orbit-icon icon-3">
                 <MudIcon Icon="@Icons.Material.Filled.Storage" />
             </div>
+        </div>
 
-            <div class="orbit-icon icon-3">
-                <MudIcon Icon="@Icons.Material.Filled.Cloud" />
+        <!-- Right: Animated Text -->
+        <div class="orbit-about-text">
+
+            <h3 class="orbit-about-heading">Hi, I'm Anna —</h3>
+            <h4 class="orbit-about-subhead typing-effect">Software Development Engineer</h4>
+
+            <p>
+                I specialize in crafting full-stack applications using .NET, Blazor Server/WebAssembly,
+                SQL Server, and Azure integrations. I bridge backend efficiency with beautiful frontend UI.
+            </p>
+
+            <p>
+                Whether it’s a warehouse slotting system, quota logic, or document generator,
+                I bring clean architecture and scalable code to every project.
+            </p>
+
+            <p>
+                I believe in thoughtful user experiences, seamless data flow,
+                and the power of simple design in complex systems.
+            </p>
+
+            <div class="orbit-tech-tags">
+                <span>.NET</span>
+                <span>Blazor</span>
+                <span>SQL</span>
+                <span>Azure</span>
+                <span>PDFSharp</span>
+                <span>ExcelJS</span>
             </div>
         </div>
 
-
-
-        <div class="orbit-about-text">
-            <h3>Hello, I'm Anna</h3>
-
-            <p>
-                A Software Development Engineer focusing on full-stack .NET applications, REST API architecture,
-                SQL optimization, and Blazor Server enterprise solutions.
-            </p>
-
-            <p>
-                With experience across enterprise systems, warehouse automation, points management,
-                and multi-module business portals, I enjoy building clean, scalable solutions.
-            </p>
-
-            <p>
-                I thrive in fast-paced multicultural teams and constantly challenge myself to learn new technologies.
-            </p>
-        </div>
     </div>
-</div>
+</section>

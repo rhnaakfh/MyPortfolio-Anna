@@ -1,20 +1,44 @@
 ﻿@page "/contact"
 
 <div class="orbit-section aos-fade-up">
-    <h2 class="orbit-section-title">Contact Me</h2>
+    <h2 class="orbit-section-title">Get In Touch</h2>
+    <p class="orbit-section-subtitle">
+        Whether it's a project, collaboration, or a technical discussion —
+        feel free to reach out.
+    </p>
 
-    <div class="orbit-contact-box">
-        <p>You can reach me at:</p>
+    <div class="orbit-contact-wrapper">
 
-        <p class="orbit-contact-email">
-            📧 <strong>your@email.com</strong>
-        </p>
+        <!-- LEFT SIDE INFO -->
+        <div class="orbit-contact-info">
+            <div class="contact-icon-box">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
 
-        <p>or connect via:</p>
+            <h3>Email</h3>
+            <p class="orbit-contact-email">your@email.com</p>
 
-        <div class="orbit-contact-links">
-            <a href="https://github.com" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <h3>Social Profiles</h3>
+            <div class="orbit-contact-socials">
+                <a href="https://github.com" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
         </div>
+
+        <!-- RIGHT SIDE FORM -->
+        <div class="orbit-contact-form">
+            <h3>Send Me a Message</h3>
+
+            <input type="text" placeholder="Your Name" class="orbit-input" />
+            <input type="email" placeholder="Your Email" class="orbit-input" />
+            <textarea placeholder="Your Message" rows="5" class="orbit-input"></textarea>
+
+            <button class="orbit-submit-btn">Send Message</button>
+        </div>
+
     </div>
 </div>

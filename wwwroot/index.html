@@ -5,26 +5,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyPortfolio-Anna</title>
+
     <base href="/" />
 
+    <!-- Base CSS -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/app.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="MyPortfolio-Anna.styles.css" rel="stylesheet" />
-    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/orbit-theme.css" />
+    <link rel="stylesheet" href="_content/MudBlazor/MudBlazor.min.css" />
 
-    <!-- ⭐ ADD THIS LINE ⭐ -->
-    <!--<link rel="stylesheet" href="css/portfolio.css" />-->
+    <!-- General app CSS -->
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!-- Orbit Theme CSS -->
+    <link rel="stylesheet" href="css/orbit/variable.css" />
+    <link rel="stylesheet" href="css/orbit/navbar.css" />
+    <link rel="stylesheet" href="css/orbit/hero.css" />
+    <link rel="stylesheet" href="css/orbit/about.css" />
+    <link rel="stylesheet" href="css/orbit/skills.css" />
+    <link rel="stylesheet" href="css/orbit/experience.css" />
+    <link rel="stylesheet" href="css/orbit/projects.css" />
+    <link rel="stylesheet" href="css/orbit/contact.css" />
+    <link rel="stylesheet" href="css/orbit/footer.css" />
+    <link rel="stylesheet" href="css/orbit/animations.css" />
+
+    <link rel="stylesheet" href="MyPortfolio-Anna.styles.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <div class="orbit-loader">
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+        </div>
     </div>
 
     <div id="blazor-error-ui">
@@ -33,9 +49,11 @@
         <span class="dismiss">🗙</span>
     </div>
 
+    <!-- Blazor boot -->
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 
+    <!-- Dark/Light Mode -->
     <script>
         window.setThemeMode = function (isDark) {
             if (isDark) {
@@ -46,6 +64,7 @@
         };
     </script>
 
+    <!-- Page fade animation -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const body = document.querySelector(".page-body") || document.body;
@@ -57,6 +76,8 @@
         });
     </script>
 
+    <!-- Hot Reload (Fixes Warning) -->
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
 
 </body>
 

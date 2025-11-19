@@ -1,8 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="section-container">
-    <h2>@Title</h2>
-    <p>@Description</p>
+<div class="orbit-section aos-fade-up">
+    <h2 class="orbit-section-title">@Title</h2>
+
+    @if (!string.IsNullOrWhiteSpace(Description))
+    {
+        <p class="orbit-section-description">@Description</p>
+    }
 
     @ChildContent
 </div>

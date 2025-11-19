@@ -1,0 +1,109 @@
+﻿/* ======================
+   TIMELINE CONTAINER
+   ====================== */
+.orbit-timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 120px; /* spacing between items */
+}
+
+    /* Center vertical line */
+    .orbit-timeline-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        background: linear-gradient(to bottom, #7b5cff, #a88fff);
+        opacity: 0.5;
+        z-index: 0;
+    }
+
+/* ======================
+   TIMELINE ITEM
+   ====================== */
+.orbit-timeline-item {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+    /* LEFT SIDE ITEM */
+    .orbit-timeline-item.left {
+        justify-content: flex-start;
+    }
+
+    /* RIGHT SIDE ITEM */
+    .orbit-timeline-item.right {
+        justify-content: flex-end;
+    }
+
+/* CARD */
+.timeline-bubble {
+    width: 420px;
+    background: white;
+    padding: 28px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 2;
+}
+
+/* DOT */
+.orbit-timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #a88fff;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 20px rgba(168,136,255,0.7);
+    z-index: 3;
+}
+
+/* LEFT DOT POSITION */
+.orbit-timeline-item.left::before {
+    left: calc(50% - 8px); /* just touches the line */
+}
+
+/* RIGHT DOT POSITION */
+.orbit-timeline-item.right::before {
+    right: calc(50% - 8px);
+}
+
+/* ======================
+   MOBILE RESPONSIVE
+   ====================== */
+@media (max-width: 850px) {
+
+    .orbit-timeline-container::before {
+        left: 25px;
+    }
+
+    .orbit-timeline-item {
+        justify-content: flex-start !important;
+    }
+
+        .orbit-timeline-item.left,
+        .orbit-timeline-item.right {
+            justify-content: flex-start !important;
+        }
+
+        .orbit-timeline-item::before {
+            left: 25px !important;
+            transform: translateY(-50%);
+        }
+
+    .timeline-bubble {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+}

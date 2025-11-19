@@ -1,36 +1,50 @@
 ﻿@page "/"
 @using MudBlazor
 
-<div class="orbit-hero aos-fade-up">
-    <div class="orbit-left">
+<div class="orbit-hero-container">
+    <div class="orbit-background-blur"></div>
+    <div class="orbit-floating-shape shape-1"></div>
+    <div class="orbit-floating-shape shape-2"></div>
+    <div class="orbit-floating-shape shape-3"></div>
 
-        <h1 class="orbit-title">
-            Hello, I'm <span>Anna</span>
-        </h1>
+    <div class="orbit-hero-grid">
 
-        <p class="orbit-subtitle">
-            Full Stack Software Developer specializing in
-            <strong>.NET, Blazor, SQL optimization</strong> and scalable enterprise systems.
-        </p>
+        <!-- LEFT TEXT -->
+        <div class="orbit-hero-left">
+            <h1 class="orbit-hero-title">
+                Hi, I'm <span class="gradient-text">Anna</span>
+            </h1>
 
-        <div class="orbit-buttons">
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/projects" Class="orbit-btn">
-                View My Projects
-            </MudButton>
+            <p class="orbit-hero-sub">
+                A Full Stack Software Engineer crafting elegant solutions with
+                <strong>.NET • Blazor • SQL Optimization • Cloud Architecture</strong>
+            </p>
 
-            <MudButton Variant="Variant.Text" Color="Color.Primary" Href="/about" Class="orbit-btn-alt">
-                About Me
-            </MudButton>
+            <div class="orbit-hero-buttons">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           Href="/projects"
+                           Class="orbit-cta">
+                    🚀 View My Projects
+                </MudButton>
+
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Primary"
+                           Href="/about"
+                           Class="orbit-cta-alt">
+                    About Me
+                </MudButton>
+            </div>
         </div>
 
-    </div>
+        <!-- RIGHT PROFILE IMAGE -->
+        <div class="orbit-hero-right">
+            <div class="orbit-image-frame">
+                <img src="images/3.jpeg" class="orbit-hero-img" />
 
-    <div class="orbit-right">
-        <div class="orbit-img-wrap">
-            <img src="images/3.jpeg" alt="Profile">
-            <span class="orbit-circle circle-1"></span>
-            <span class="orbit-circle circle-2"></span>
-            <span class="orbit-circle circle-3"></span>
+                <span class="img-ring ring-1"></span>
+                <span class="img-ring ring-2"></span>
+            </div>
         </div>
     </div>
 </div>

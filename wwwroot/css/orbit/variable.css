@@ -1,0 +1,32 @@
+﻿/* ---------- THEME VARIABLES ---------- */
+:root {
+    --orbit-bg: #f8f9fc;
+    --orbit-surface: #ffffff;
+    --orbit-text: #222222;
+    --orbit-text-muted: #666666;
+    --orbit-accent: #6c63ff;
+    --orbit-border: rgba(0,0,0,0.06);
+    --orbit-hero-title: #222222;
+    --orbit-hero-subtitle: #555555;
+    --orbit-footer-bg: #ffffff;
+    --orbit-footer-text: #777777;
+}
+
+body.orbit-dark {
+    --orbit-bg: #050816;
+    --orbit-surface: #0f172a;
+    --orbit-text: #e5e7eb;
+    --orbit-text-muted: #9ca3af;
+    --orbit-accent: #a855f7;
+    --orbit-border: rgba(148,163,184,0.3);
+    --orbit-hero-title: #f9fafb;
+    --orbit-hero-subtitle: #9ca3af;
+    --orbit-footer-bg: #020617;
+    --orbit-footer-text: #9ca3af;
+}
+
+html, body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--orbit-bg);
+    color: var(--orbit-text);
+}
