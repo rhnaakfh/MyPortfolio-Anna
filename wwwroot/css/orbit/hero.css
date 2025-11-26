@@ -173,4 +173,25 @@
     .orbit-hero-buttons {
         justify-content: center;
     }
+
+    /* FIX ROTATING CIRCLE SIZE ON MOBILE */
+    .orbit-image-frame {
+        width: 260px;
+        height: 260px;
+    }
+
+    .ring-1 {
+        width: 300px;
+        height: 300px;
+        top: -20px;
+        left: -20px;
+    }
+
+    .ring-2 {
+        width: 340px;
+        height: 340px;
+        top: -40px;
+        left: -40px;
+        opacity: .4;
+    }
 }
