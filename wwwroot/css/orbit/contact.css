@@ -134,3 +134,19 @@
         grid-template-columns: 1fr;
     }
 }
+
+.orbit-contact-email a {
+    color: var(--orbit-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.orbit-contact-email a:hover {
+    text-decoration: underline;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

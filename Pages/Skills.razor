@@ -3,58 +3,160 @@
 <div class="orbit-section aos-fade-up">
     <h2 class="orbit-section-title">Technical Skills</h2>
     <p class="orbit-section-subtitle">
-        A blend of backend engineering, frontend UI/UX, database optimization, cloud integrations, and modern tooling.
+        Practical, production-level skills applied across enterprise systems,
+        internal platforms, and data-driven workflows.
     </p>
 
     <div class="orbit-skills-grid">
+        @foreach (var skill in SkillList)
+        {
+            <div class="orbit-skill-card">
 
-        <div class="orbit-skill-card">
-            <div class="skill-icon backend">
-                <i class="fa-solid fa-server"></i>
+                <!-- Skill Title -->
+                <h4>@skill.Name</h4>
+
+                <!-- Skill Proficiency -->
+                <div class="skill-level @GetSkillLevelClass(skill.Level)">
+                    @skill.Level
+                </div>
+
+                <!-- Skill Description -->
+                <p class="skill-desc">
+                    @skill.Description
+                </p>
+
+                <!-- Project Mapping -->
+                <div class="skill-projects">
+                    <span class="used-in-label">Used in:</span>
+
+                    @foreach (var project in skill.UsedInProjects)
+                    {
+                        <span class="skill-project-tag">
+                            @project
+                        </span>
+                    }
+                </div>
+
             </div>
-            <h4>Backend Development</h4>
-            <p>C#, .NET, ASP.NET Core, REST APIs</p>
-        </div>
-
-        <div class="orbit-skill-card">
-            <div class="skill-icon frontend">
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <h4>Frontend Development</h4>
-            <p>Blazor, HTML, CSS, JavaScript, Bootstrap</p>
-        </div>
-
-        <div class="orbit-skill-card">
-            <div class="skill-icon database">
-                <i class="fa-solid fa-database"></i>
-            </div>
-            <h4>Database Engineering</h4>
-            <p>SQL Server, Stored Procedures, Query Optimization</p>
-        </div>
-
-        <div class="orbit-skill-card">
-            <div class="skill-icon cloud">
-                <i class="fa-solid fa-cloud"></i>
-            </div>
-            <h4>Cloud & Integrations</h4>
-            <p>Azure Blob Storage, Email Services, FilePond Uploads</p>
-        </div>
-
-        <div class="orbit-skill-card">
-            <div class="skill-icon report">
-                <i class="fa-solid fa-file-lines"></i>
-            </div>
-            <h4>Reports & Documents</h4>
-            <p>PDFSharp, iTextSharp, ExcelJS</p>
-        </div>
-
-        <div class="orbit-skill-card">
-            <div class="skill-icon tools">
-                <i class="fa-solid fa-toolbox"></i>
-            </div>
-            <h4>Tools & Workflow</h4>
-            <p>Visual Studio, Git/GitHub, Postman, Swagger</p>
-        </div>
-
+        }
     </div>
 </div>
+
+@code {
+    // ======================
+    // MODELS
+    // ======================
+
+    private class SkillItem
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Level { get; set; } = string.Empty; // Core | Advanced | Working
+        public string Description { get; set; } = string.Empty;
+        public List<string> UsedInProjects { get; set; } = new();
+    }
+
+    // ======================
+    // DATA (REAL, HONEST)
+    // ======================
+
+    private List<SkillItem> SkillList = new()
+    {
+        new SkillItem
+        {
+            Name = "Backend Engineering (.NET / C#)",
+            Level = "Core",
+            Description =
+                "Designing service-layer architecture, enforcing business rules, " +
+                "handling complex workflows, and building RESTful APIs using .NET.",
+            UsedInProjects =
+            {
+                "Logistics Scheduling & Capacity Management",
+                "Enterprise Loyalty & Credit Platform",
+                "Automated Document Generation Service"
+            }
+        },
+
+        new SkillItem
+        {
+            Name = "Frontend Development (Blazor)",
+            Level = "Advanced",
+            Description =
+                "Building component-driven UI with Blazor Server/WebAssembly, " +
+                "JavaScript interop, responsive layouts, and user-focused workflows.",
+            UsedInProjects =
+            {
+                "Logistics Scheduling & Capacity Management",
+                "Fleet & Driver Management System",
+                "Unfulfilled Order Management System"
+            }
+        },
+
+        new SkillItem
+        {
+            Name = "Database Engineering (SQL Server)",
+            Level = "Core",
+            Description =
+                "Writing complex stored procedures, transactional logic, " +
+                "query optimization, reporting queries, and data integrity enforcement.",
+            UsedInProjects =
+            {
+                "Enterprise Loyalty & Credit Platform",
+                "Logistics Scheduling & Capacity Management",
+                "Unfulfilled Order Management System"
+            }
+        },
+
+        new SkillItem
+        {
+            Name = "Cloud & Integrations",
+            Level = "Advanced",
+            Description =
+                "Integrating Azure Blob Storage for secure file handling, " +
+                "email notifications, third-party services, and upload pipelines.",
+            UsedInProjects =
+            {
+                "Fleet & Driver Management System",
+                "Unfulfilled Order Management System",
+                "Automated Document Generation Service"
+            }
+        },
+
+        new SkillItem
+        {
+            Name = "Reports & Document Generation",
+            Level = "Advanced",
+            Description =
+                "Generating layout-accurate PDFs and structured Excel exports " +
+                "for invoices, delivery notes, and operational reports.",
+            UsedInProjects =
+            {
+                "Automated Document Generation Service",
+                "Enterprise Loyalty & Credit Platform"
+            }
+        },
+
+        new SkillItem
+        {
+            Name = "Tools & Engineering Workflow",
+            Level = "Core",
+            Description =
+                "Day-to-day development using Visual Studio, Git/GitHub, " +
+                "Postman, Swagger, debugging, and collaborative workflows.",
+            UsedInProjects =
+            {
+                "All Production Systems"
+            }
+        }
+    };
+
+    // ======================
+    // HELPERS
+    // ======================
+
+    private string GetSkillLevelClass(string level) => level switch
+    {
+        "Core" => "level-core",
+        "Advanced" => "level-advanced",
+        _ => "level-working"
+    };
+}

@@ -120,11 +120,20 @@ body.orbit-dark .orbit-about-img {
 ------------------------------ */
 
 .typing-effect {
+    display: inline-block;
     white-space: nowrap;
     overflow: hidden;
+    /* Cursor */
     border-right: 2px solid var(--orbit-accent);
-    width: 0;
-    animation: typing 3s steps(40, end) forwards, blinkCursor 0.75s step-end infinite;
+    /* IMPORTANT: match approx character length */
+    width: 20ch;
+    animation: typing 2.8s steps(20, end) forwards, blinkCursor 0.8s step-end infinite;
+}
+
+/* Stop cursor blinking after typing finishes */
+.typing-effect.finished {
+    border-right: none;
+    animation: none;
 }
 
 

@@ -88,3 +88,12 @@
         border: 1px solid rgba(255,255,255,0.16);
         backdrop-filter: blur(6px);
     }
+
+
+.project-4 {
+    background: linear-gradient(135deg, #feca57, #ff9f43);
+}
+
+.project-5 {
+    background: linear-gradient(135deg, #576574, #8395a7);
+}

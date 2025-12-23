@@ -24,6 +24,12 @@
         z-index: 0;
     }
 
+body.orbit-dark .timeline-bubble {
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+
 /* ======================
    TIMELINE ITEM
    ====================== */
@@ -46,13 +52,32 @@
 /* CARD */
 .timeline-bubble {
     width: 420px;
-    background: white;
+    background: var(--orbit-surface);
+    color: var(--orbit-text);
     padding: 28px 30px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     position: relative;
     z-index: 2;
 }
+
+    .timeline-bubble h3 {
+        color: var(--orbit-text);
+        font-weight: 600;
+    }
+
+.orbit-timeline-period {
+    color: var(--orbit-muted);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.timeline-bubble p {
+    color: var(--orbit-text);
+    line-height: 1.6;
+}
+
+
 
 /* DOT */
 .orbit-timeline-item::before {

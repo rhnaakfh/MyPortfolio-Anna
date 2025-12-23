@@ -1,4 +1,6 @@
 ﻿@page "/contact"
+@using MyPortfolio_Anna.Models
+@inject HttpClient Http
 
 <div class="orbit-section aos-fade-up">
     <h2 class="orbit-section-title">Get In Touch</h2>
@@ -16,15 +18,28 @@
             </div>
 
             <h3>Email</h3>
-            <p class="orbit-contact-email">your@email.com</p>
+            <p class="orbit-contact-email">
+                <a href="mailto:rhnaafkh.private@gmail.com">
+                    rhnaafkh.private@gmail.com
+                </a>
+            </p>
 
             <h3>Social Profiles</h3>
             <div class="orbit-contact-socials">
-                <a href="https://github.com" target="_blank">
-                    <i class="fa-brands fa-github"></i> GitHub
+                <a href="https://github.com/rhnaakfh/MyPortfolio-Anna"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-link">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
                 </a>
-                <a href="https://linkedin.com" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+
+                <a href="https://www.linkedin.com/in/raihana-afikah-binti-nik-mohd-yusoff-08216336b/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
                 </a>
             </div>
         </div>
@@ -33,12 +48,62 @@
         <div class="orbit-contact-form">
             <h3>Send Me a Message</h3>
 
-            <input type="text" placeholder="Your Name" class="orbit-input" />
-            <input type="email" placeholder="Your Email" class="orbit-input" />
-            <textarea placeholder="Your Message" rows="5" class="orbit-input"></textarea>
+            <EditForm Model="@ContactForm" OnValidSubmit="HandleSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
-            <button class="orbit-submit-btn">Send Message</button>
+                <input class="orbit-input"
+                       placeholder="Your Name"
+                       @bind="ContactForm.Name" />
+
+                <input class="orbit-input"
+                       type="email"
+                       placeholder="Your Email"
+                       @bind="ContactForm.Email" />
+
+                <textarea class="orbit-input"
+                          rows="5"
+                          placeholder="Your Message"
+                          @bind="ContactForm.Message"></textarea>
+
+                <button class="orbit-submit-btn" disabled="@IsSending">
+                    @(IsSending ? "Sending..." : "Send Message")
+                </button>
+            </EditForm>
+
+            @if (!string.IsNullOrWhiteSpace(StatusMessage))
+            {
+                <p class="form-status">@StatusMessage</p>
+            }
         </div>
 
     </div>
 </div>
+
+@code {
+    private ContactMessage ContactForm = new();
+    private bool IsSending;
+    private string? StatusMessage;
+
+    private async Task HandleSubmit()
+    {
+        IsSending = true;
+        StatusMessage = null;
+
+        try
+        {
+            await Http.PostAsJsonAsync("api/contact", ContactForm);
+
+            StatusMessage = "Message sent successfully!";
+            ContactForm = new(); // reset form
+        }
+        catch
+        {
+            StatusMessage = "Failed to send message. Please try again later.";
+        }
+        finally
+        {
+            IsSending = false;
+        }
+    }
+}
