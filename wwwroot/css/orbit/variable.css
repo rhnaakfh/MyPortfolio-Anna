@@ -10,6 +10,8 @@
     --orbit-hero-subtitle: #555555;
     --orbit-footer-bg: #ffffff;
     --orbit-footer-text: #777777;
+    --orbit-text-primary: var(--orbit-text);
+    --orbit-text-secondary: var(--orbit-text-muted);
 }
 
 body.orbit-dark {
@@ -23,6 +25,8 @@ body.orbit-dark {
     --orbit-hero-subtitle: #9ca3af;
     --orbit-footer-bg: #020617;
     --orbit-footer-text: #9ca3af;
+    --orbit-text-primary: var(--orbit-text);
+    --orbit-text-secondary: var(--orbit-text-muted);
 }
 
 html, body {

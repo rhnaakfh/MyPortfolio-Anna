@@ -16,4 +16,8 @@
 	  <Folder Include="wwwroot\images\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\MyPortfolio.Anna.Shared\MyPortfolio.Anna.Shared.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -1,6 +1,8 @@
 ﻿@page "/contact"
-@using MyPortfolio_Anna.Models
+@using MudBlazor
+@using MyPortfolio.Anna.Shared.Models
 @inject HttpClient Http
+@inject ISnackbar Snackbar
 
 <div class="orbit-section aos-fade-up">
     <h2 class="orbit-section-title">Get In Touch</h2>
@@ -66,10 +68,29 @@
                           placeholder="Your Message"
                           @bind="ContactForm.Message"></textarea>
 
-                <button class="orbit-submit-btn" disabled="@IsSending">
-                    @(IsSending ? "Sending..." : "Send Message")
-                </button>
+                <MudButton ButtonType="ButtonType.Submit"
+                           Color="Color.Primary"
+                           Variant="Variant.Filled"
+                           Disabled="@IsSending"
+                           Class="orbit-submit-btn">
+
+                    @if (IsSending)
+                    {
+                        <MudProgressCircular Size="Size.Small"
+                                             Indeterminate="true"
+                                             Color="Color.Inherit"
+                                             Class="me-2" />
+                        <span>Sending...</span>
+                    }
+                    else
+                    {
+                        <span>Send Message</span>
+                    }
+
+                </MudButton>
+
             </EditForm>
+
 
             @if (!string.IsNullOrWhiteSpace(StatusMessage))
             {
@@ -88,22 +109,29 @@
     private async Task HandleSubmit()
     {
         IsSending = true;
-        StatusMessage = null;
 
         try
         {
             await Http.PostAsJsonAsync("api/contact", ContactForm);
 
-            StatusMessage = "Message sent successfully!";
-            ContactForm = new(); // reset form
+            Snackbar.Add(
+                "Message sent successfully!",
+                Severity.Success
+            );
+
+            ContactForm = new(); // reset
         }
         catch
         {
-            StatusMessage = "Failed to send message. Please try again later.";
+            Snackbar.Add(
+                "Failed to send message. Please try again later.",
+                Severity.Error
+            );
         }
         finally
         {
             IsSending = false;
         }
     }
+
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio-Anna", "MyPortf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.Anna.Api", "..\MyPortfolio.Anna.Api\MyPortfolio.Anna.Api.csproj", "{19FBFFF3-71E8-4072-8AC5-5EFF52A77B20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.Anna.Shared", "..\MyPortfolio.Anna.Shared\MyPortfolio.Anna.Shared.csproj", "{F74942CE-84F0-4AB0-83E2-56A104C9B5D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{19FBFFF3-71E8-4072-8AC5-5EFF52A77B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19FBFFF3-71E8-4072-8AC5-5EFF52A77B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19FBFFF3-71E8-4072-8AC5-5EFF52A77B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74942CE-84F0-4AB0-83E2-56A104C9B5D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74942CE-84F0-4AB0-83E2-56A104C9B5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74942CE-84F0-4AB0-83E2-56A104C9B5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74942CE-84F0-4AB0-83E2-56A104C9B5D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
