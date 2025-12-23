@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using MudBlazor
+@inject IJSRuntime JS
 
 <div class="orbit-hero-container">
     <div class="orbit-background-blur"></div>
@@ -11,16 +12,16 @@
 
         <!-- LEFT TEXT -->
         <div class="orbit-hero-left">
-            <h1 class="orbit-hero-title">
+            <h1 class="orbit-hero-title fade-up">
                 Hi, I'm <span class="gradient-text">Anna</span>
             </h1>
 
-            <p class="orbit-hero-sub">
-                A Software Development Engineer crafting elegant solutions with
+            <p class="orbit-hero-sub fade-up">
+                A Software Development crafting elegant solutions with
                 <strong>.NET • Blazor • SQL Optimization • Cloud Architecture</strong>
             </p>
 
-            <div class="orbit-hero-buttons">
+            <div class="orbit-hero-buttons fade-up">
                 <MudButton Variant="Variant.Filled"
                            Color="Color.Primary"
                            Href="/projects"
@@ -39,12 +40,26 @@
 
         <!-- RIGHT PROFILE IMAGE -->
         <div class="orbit-hero-right">
-            <div class="orbit-image-frame">
-                <img src="images/3.jpeg" class="orbit-hero-img" />
+            <div class="orbit-image-tilt">
+                <div class="orbit-image-frame">
+                    <img src="images/3.jpeg" class="orbit-hero-img" />
 
-                <span class="img-ring ring-1"></span>
-                <span class="img-ring ring-2"></span>
+                    <span class="img-ring ring-1"></span>
+                    <span class="img-ring ring-2"></span>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initOrbitTilt");
+            await JS.InvokeVoidAsync("orbitFloatingParallax");
+            await JS.InvokeVoidAsync("orbitFadeUp");
+        }
+    }
+}

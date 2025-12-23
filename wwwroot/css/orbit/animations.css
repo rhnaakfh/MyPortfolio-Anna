@@ -78,18 +78,6 @@
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes typing {
     from {
         width: 0;
@@ -107,28 +95,6 @@
 
     50% {
         border-color: var(--orbit-accent);
-    }
-}
-
-
-@keyframes rotateRing {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
-@keyframes floatAnim {
-    0%,100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-40px);
     }
 }
 

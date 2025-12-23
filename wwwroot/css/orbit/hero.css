@@ -5,10 +5,10 @@
     position: relative;
     padding: 100px 20px;
     overflow: hidden;
-    animation: fadeIn 0.8s ease-out;
+    animation: fadeIn .8s ease-out;
 }
 
-/* Glass blur background */
+/* Background Blur */
 .orbit-background-blur {
     position: absolute;
     top: -10%;
@@ -20,7 +20,7 @@
     z-index: -2;
 }
 
-/* Floating shapes */
+/* Floating Shapes */
 .orbit-floating-shape {
     position: absolute;
     width: 180px;
@@ -51,7 +51,6 @@
     animation-delay: 4s;
 }
 
-
 /* =============================
    HERO GRID
    ============================= */
@@ -66,13 +65,12 @@
 }
 
 /* =============================
-   LEFT SIDE
+   LEFT SIDE TEXT
    ============================= */
 .orbit-hero-title {
     color: var(--orbit-hero-title);
     font-size: 62px;
     font-weight: 800;
-    margin-bottom: 20px;
     line-height: 1.1;
 }
 
@@ -87,6 +85,7 @@
     line-height: 1.7;
     color: var(--orbit-hero-subtitle);
     max-width: 550px;
+    margin-top: 20px;
 }
 
 .orbit-hero-buttons {
@@ -95,20 +94,14 @@
     gap: 20px;
 }
 
-.orbit-cta {
-    padding: 14px 32px !important;
-    border-radius: 50px !important;
-    font-weight: 600;
-}
-
-.orbit-cta-alt {
+.orbit-cta, .orbit-cta-alt {
     padding: 14px 32px !important;
     border-radius: 50px !important;
     font-weight: 600;
 }
 
 /* =============================
-   RIGHT SIDE IMAGE
+   RIGHT IMAGE + RINGS
    ============================= */
 .orbit-image-frame {
     position: relative;
@@ -127,6 +120,9 @@
 
 .img-ring {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 2px solid var(--orbit-accent);
     animation: rotateRing 10s linear infinite;
@@ -135,16 +131,17 @@
 .ring-1 {
     width: 420px;
     height: 420px;
-    top: -20px;
-    left: -20px;
 }
 
 .ring-2 {
     width: 460px;
     height: 460px;
-    top: -40px;
-    left: -40px;
     opacity: .4;
+}
+
+.orbit-image-tilt {
+    transform-style: preserve-3d;
+    perspective: 800px;
 }
 
 
@@ -166,32 +163,48 @@
         height: 260px;
     }
 
-    .orbit-hero-sub {
-        margin: auto;
-    }
-
-    .orbit-hero-buttons {
-        justify-content: center;
-    }
-
-    /* FIX ROTATING CIRCLE SIZE ON MOBILE */
-    .orbit-image-frame {
-        width: 260px;
-        height: 260px;
-    }
-
     .ring-1 {
         width: 300px;
         height: 300px;
-        top: -20px;
-        left: -20px;
     }
 
     .ring-2 {
         width: 340px;
         height: 340px;
-        top: -40px;
-        left: -40px;
-        opacity: .4;
+    }
+}
+
+/* =============================
+   ANIMATIONS
+   ============================= */
+@keyframes rotateRing {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes floatAnim {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
