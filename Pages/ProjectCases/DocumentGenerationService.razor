@@ -1,0 +1,89 @@
+﻿@namespace MyPortfolio_Anna.Pages.ProjectCases
+@page "/projects/document-generation-service"
+@layout CaseStudyLayout
+
+<Header>
+    <h1>Automated Document Generation Service</h1>
+    <p>
+        A reusable backend service for generating invoices and delivery notes
+        with strict layout requirements, multi-copy output,
+        and secure cloud-based document storage.
+    </p>
+
+    <CaseStudyTechStack Items="TechStack" />
+</Header>
+
+<CaseStudySection Title="Problem">
+    Business-critical documents such as invoices and delivery notes
+    were previously generated manually or through inconsistent templates.
+    This resulted in formatting errors, layout drift, and increased effort
+    when supporting multiple document types and copies.
+</CaseStudySection>
+
+<CaseStudySection Title="Constraints">
+    <ul>
+        <li>Strict layout requirements matching existing financial templates</li>
+        <li>Support for multiple document types and variants</li>
+        <li>Multi-copy output per document (e.g. customer, internal)</li>
+        <li>Documents must be securely stored and retrievable</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="Solution">
+    Designed a reusable document generation engine
+    that programmatically renders PDF documents
+    using precise layout control, supports multiple document variants,
+    and integrates with cloud storage for secure access and distribution.
+</CaseStudySection>
+
+<CaseStudyArchitecture
+    Description="
+        The service operates as a backend module where
+        application services prepare structured document data,
+        the PDF generation layer renders layouts using PDFSharp,
+        and Azure Blob Storage securely stores generated files
+        with controlled access for downstream systems.
+    " />
+
+<CaseStudyOutcomes Items="Outcomes" />
+
+<CaseStudySection Title="Key Technical Decisions">
+    <ul>
+        <li>Code-driven layout rendering to eliminate template drift</li>
+        <li>Separation of document structure and data preparation</li>
+        <li>Reusable helpers for consistent spacing, fonts, and tables</li>
+        <li>Cloud storage integration to avoid filesystem dependencies</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="What I’d Improve Next">
+    Introduce asynchronous document generation for large batches,
+    add template versioning support,
+    and expose document previews for user verification
+    before final generation.
+</CaseStudySection>
+
+<CaseStudyNavigation
+    PreviousUrl="/projects/unfulfilled-order-management"
+    PreviousLabel="Exception & Unfulfilled Order Management"
+    NextUrl="/projects"
+    NextLabel="All Projects" />
+
+@code {
+    private List<CaseStudyTechStack.TechItem> TechStack = new()
+    {
+        new() { Name = "C#", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "PDFSharp", Icon = "fa-solid fa-file-pdf" },
+        new() { Name = ".NET", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "Azure Blob Storage", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "Backend Services", Icon = "fa-solid fa-gear" }
+    };
+
+    private List<CaseStudyOutcomes.OutcomeItem> Outcomes = new()
+    {
+        new() { Value = "Consistent", Label = "Document Layouts" },
+        new() { Value = "Multi-Copy", Label = "Output Support" },
+        new() { Value = "Reusable", Label = "Generation Engine" },
+        new() { Value = "Secure", Label = "Cloud Storage" }
+    };
+}

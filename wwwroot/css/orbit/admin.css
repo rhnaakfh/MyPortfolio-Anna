@@ -1,0 +1,205 @@
+﻿/* ================= LAYOUT ================= */
+.orbit-admin-page {
+    padding: 2rem 1rem;
+    background: var(--orbit-bg);
+    min-height: 100vh;
+}
+
+.orbit-admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================= CARD ================= */
+.orbit-admin-card {
+    background: var(--orbit-surface);
+    border-radius: 18px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    color: var(--orbit-text);
+}
+
+.orbit-admin-glass {
+    backdrop-filter: blur(14px);
+}
+
+/* ================= HEADER ================= */
+.orbit-admin-header {
+    background: linear-gradient( 135deg, var(--orbit-accent), #74b9ff );
+    color: #fff;
+}
+
+body.orbit-dark .orbit-admin-header {
+    background: linear-gradient( 135deg, var(--orbit-accent), #312e81 );
+}
+
+.orbit-admin-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.orbit-admin-title {
+    margin: 0;
+    font-weight: 700;
+}
+
+.orbit-admin-subtitle {
+    margin: 0;
+    opacity: .9;
+}
+
+/* ================= TABLE ================= */
+.orbit-admin-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    .orbit-admin-table thead th {
+        padding: 1rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: var(--orbit-text-muted);
+        background: var(--orbit-surface);
+        border-bottom: 1px solid var(--orbit-border);
+    }
+
+    .orbit-admin-table tbody td {
+        padding: 1rem;
+        font-size: .9rem;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--orbit-border);
+        color: var(--orbit-text);
+    }
+
+    .orbit-admin-table tbody tr:hover {
+        background: rgba(108, 99, 255, 0.05);
+    }
+
+body.orbit-dark .orbit-admin-table tbody tr:hover {
+    background: rgba(168, 85, 247, 0.12);
+}
+
+/* ================= MESSAGE ================= */
+.orbit-admin-message-preview {
+    max-width: 420px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--orbit-text-muted);
+}
+
+.orbit-admin-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--orbit-bg);
+    border-radius: 12px;
+    color: var(--orbit-text);
+}
+
+/* ================= BADGES ================= */
+.orbit-admin-badge {
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 500;
+}
+
+.orbit-admin-badge-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+.orbit-admin-badge-warning {
+    background: rgba(245, 158, 11, 0.18);
+    color: #f59e0b;
+}
+
+.orbit-admin-badge-info {
+    background: rgba(99, 102, 241, 0.18);
+    color: var(--orbit-accent);
+}
+
+.orbit-admin-badge-neutral {
+    background: rgba(156, 163, 175, 0.18);
+    color: var(--orbit-text-muted);
+}
+
+/* ================= BUTTONS ================= */
+.orbit-admin-btn {
+    border-radius: 999px;
+    padding: .45rem .95rem;
+    border: none;
+    cursor: pointer;
+    font-size: .85rem;
+}
+
+.orbit-admin-btn-primary {
+    background: var(--orbit-accent);
+    color: #fff;
+}
+
+.orbit-admin-btn-ghost {
+    background: transparent;
+    color: var(--orbit-accent);
+}
+
+/* ================= MODAL ================= */
+.orbit-admin-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 1040;
+}
+
+.orbit-admin-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.orbit-admin-modal-card {
+    width: 720px;
+    background: var(--orbit-surface);
+    border-radius: 18px;
+    overflow: hidden;
+    color: var(--orbit-text);
+}
+
+.orbit-admin-modal-header,
+.orbit-admin-modal-footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--orbit-border);
+}
+
+.orbit-admin-modal-body {
+    padding: 1.5rem;
+}
+
+.orbit-admin-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--orbit-text);
+}
+
+/* ================= STATES ================= */
+.orbit-admin-muted {
+    color: var(--orbit-text-muted);
+}
+
+.orbit-admin-empty {
+    padding: 2rem;
+    text-align: center;
+    color: var(--orbit-text-muted);
+}
+

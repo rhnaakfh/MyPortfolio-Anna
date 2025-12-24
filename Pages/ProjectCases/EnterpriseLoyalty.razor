@@ -1,0 +1,88 @@
+﻿@namespace MyPortfolio_Anna.Pages.ProjectCases
+@page "/projects/enterprise-loyalty"
+@layout CaseStudyLayout
+
+<Header>
+    <h1>Enterprise Loyalty & Credit Management Platform</h1>
+    <p>
+        A centralized enterprise platform managing loyalty points,
+        credit adjustments, transaction lifecycles, and reporting
+        across multiple programs with strict audit and reconciliation rules.
+    </p>
+
+    <CaseStudyTechStack Items="TechStack" />
+</Header>
+
+<CaseStudySection Title="Problem">
+    The organization lacked a unified system to manage loyalty points
+    and credit adjustments across programs. Manual reconciliation,
+    inconsistent rules, and limited reporting caused operational risk
+    and delayed financial insights.
+</CaseStudySection>
+
+<CaseStudySection Title="Constraints">
+    <ul>
+        <li>High transaction volume with strict audit requirements</li>
+        <li>Multiple loyalty programs with different business rules</li>
+        <li>Points aging and expiry logic must be deterministic</li>
+        <li>Excel exports required for finance and compliance teams</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="Solution">
+    Built a centralized loyalty and credit management platform
+    with transaction-level traceability, points aging logic,
+    adjustment workflows, and configurable reporting filters
+    backed by optimized SQL stored procedures.
+</CaseStudySection>
+
+<CaseStudyArchitecture
+    Description="
+        The platform follows a service-oriented architecture where
+        Blazor Server provides secure administrative interfaces,
+        application services enforce business workflows,
+        and SQL Server stored procedures handle transactional integrity,
+        points aging, and financial reconciliation.
+    " />
+
+<CaseStudyOutcomes Items="Outcomes" />
+
+<CaseStudySection Title="Key Technical Decisions">
+    <ul>
+        <li>Ledger-based transaction model for full auditability</li>
+        <li>Points aging logic enforced at database level</li>
+        <li>Batch-friendly stored procedures for reporting performance</li>
+        <li>Client-side Excel export using ExcelJS</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="What I’d Improve Next">
+    Introduce background processing for large report generation,
+    implement role-scoped dashboards for non-admin users,
+    and add anomaly detection for unusual point adjustments.
+</CaseStudySection>
+
+<CaseStudyNavigation
+    PreviousUrl="/projects/logistics-scheduling"
+    PreviousLabel="Logistics Scheduling & Capacity Management"
+    NextUrl="/projects/fleet-driver-management"
+    NextLabel="Fleet & Driver Management System" />
+
+@code {
+    private List<CaseStudyTechStack.TechItem> TechStack = new()
+    {
+        new() { Name = "Blazor Server", Icon = "fa-solid fa-layer-group" },
+        new() { Name = "C#", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "SQL Server", Icon = "fa-solid fa-database" },
+        new() { Name = "ExcelJS", Icon = "fa-solid fa-file-excel" },
+        new() { Name = "JavaScript Interop", Icon = "fa-brands fa-js" }
+    };
+
+    private List<CaseStudyOutcomes.OutcomeItem> Outcomes = new()
+    {
+        new() { Value = "100%", Label = "Transaction Traceability" },
+        new() { Value = "Automated", Label = "Points Aging Logic" },
+        new() { Value = "↓ 70%", Label = "Manual Reconciliation" },
+        new() { Value = "Multi-Program", Label = "Unified Reporting" }
+    };
+}

@@ -1,0 +1,185 @@
+﻿@page "/admin/contact"
+@using MyPortfolio.Anna.Shared.Models
+@inject HttpClient Http
+
+<div class="orbit-admin-page">
+    <div class="orbit-admin-container">
+
+        <!-- ================= HEADER ================= -->
+        <div class="orbit-admin-card orbit-admin-header mb-4">
+            <div class="orbit-admin-header-inner">
+                <div>
+                    <h2 class="orbit-admin-title">Contact Messages</h2>
+                    <p class="orbit-admin-subtitle">
+                        Internal dashboard — manage enquiries and replies
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTENT ================= -->
+        <div class="orbit-admin-card orbit-admin-glass">
+
+            @if (isLoading)
+            {
+                <div class="orbit-admin-muted">Loading messages…</div>
+            }
+            else if (!messages.Any())
+            {
+                <div class="orbit-admin-empty">
+                    No contact messages found.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="orbit-admin-table">
+                        <thead>
+                            <tr>
+                                <th style="width:160px;">Date</th>
+                                <th style="width:180px;">Name</th>
+                                <th style="width:240px;">Email</th>
+                                <th>Message</th>
+                                <th style="width:120px;">Email</th>
+                                <th style="width:120px;">Reply</th>
+                                <th style="width:90px;">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in messages)
+                            {
+                                <tr>
+                                    <td>@item.Timestamp.ToString("dd MMM yyyy HH:mm")</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        <div class="orbit-admin-message-preview">
+                                            @item.Message
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="orbit-admin-badge @(item.EmailSent
+                                            ? "orbit-admin-badge-success"
+                                            : "orbit-admin-badge-neutral")">
+                                            @(item.EmailSent ? "Sent" : "Pending")
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="orbit-admin-badge @(item.IsReplied
+                                            ? "orbit-admin-badge-info"
+                                            : "orbit-admin-badge-warning")">
+                                            @(item.IsReplied ? "Replied" : "Pending")
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="orbit-admin-btn orbit-admin-btn-ghost"
+                                                @onclick="() => OpenModal(item)">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* ================= MODAL ================= *@
+@if (showModal && selected != null)
+{
+    <div class="orbit-admin-modal-backdrop"></div>
+
+    <div class="orbit-admin-modal">
+        <div class="orbit-admin-modal-card">
+
+            <div class="orbit-admin-modal-header">
+                <h4>📩 Message Details</h4>
+                <button class="orbit-admin-close" @onclick="CloseModal">×</button>
+            </div>
+
+            <div class="orbit-admin-modal-body">
+                <div class="orbit-admin-meta">
+                    <div><strong>Name:</strong> @selected.Name</div>
+                    <div><strong>Email:</strong> @selected.Email</div>
+                    <div><strong>IP:</strong> @selected.IpAddress</div>
+                    <div>
+                        <strong>Received:</strong>
+                        @selected.Timestamp.ToString("dd MMM yyyy HH:mm")
+                    </div>
+                </div>
+
+                <div class="orbit-admin-message">
+                    @selected.Message
+                </div>
+            </div>
+
+            <div class="orbit-admin-modal-footer">
+                @if (!selected.IsReplied)
+                {
+                    <button class="orbit-admin-btn orbit-admin-btn-primary"
+                            @onclick="MarkAsReplied">
+                        Mark as Replied
+                    </button>
+                }
+
+                <button class="orbit-admin-btn orbit-admin-btn-ghost"
+                        @onclick="CloseModal">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+}
+
+@code {
+    private List<GetContactMessages> messages = new();
+    private GetContactMessages? selected;
+    private bool showModal;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadMessages();
+    }
+
+    private async Task LoadMessages()
+    {
+        isLoading = true;
+
+        messages = await Http.GetFromJsonAsync<List<GetContactMessages>>(
+            "api/contact/admin"
+        ) ?? new();
+
+        isLoading = false;
+    }
+
+    private void OpenModal(GetContactMessages item)
+    {
+        selected = item;
+        showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+        selected = null;
+    }
+
+    private async Task MarkAsReplied()
+    {
+        if (selected == null) return;
+
+        await Http.PostAsJsonAsync(
+            "api/contact/admin/replied",
+            selected.Id
+        );
+
+        selected.IsReplied = true;
+        CloseModal();
+    }
+}

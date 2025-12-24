@@ -97,3 +97,10 @@
 .project-5 {
     background: linear-gradient(135deg, #576574, #8395a7);
 }
+
+
+.orbit-project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

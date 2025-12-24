@@ -1,4 +1,5 @@
-﻿@page "/projects"
+﻿@namespace MyPortfolio_Anna.Pages
+@page "/projects"
 
 <div class="orbit-section aos-fade-up">
     <h2 class="orbit-section-title">Projects</h2>
@@ -10,109 +11,119 @@
     <div class="orbit-projects-grid">
 
         <!-- PROJECT 1 -->
-        <div class="orbit-project-card">
-            <div class="project-icon project-1">
-                <i class="fa-solid fa-calendar-check"></i>
-            </div>
+        <a class="orbit-project-link" href="/projects/logistics-scheduling">
+            <div class="orbit-project-card">
+                <div class="project-icon project-1">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
 
-            <h3>Logistics Scheduling & Capacity Management System</h3>
-            <p class="project-desc">
-                End-to-end warehouse scheduling platform managing time-slot allocation,
-                supplier booking limits, cancellations, QR-based check-in,
-                automated notifications, and cloud-based file storage.
-            </p>
+                <h3>Logistics Scheduling & Capacity Management System</h3>
+                <p class="project-desc">
+                    End-to-end warehouse scheduling platform managing time-slot allocation,
+                    supplier booking limits, cancellations, QR-based check-in,
+                    automated notifications, and cloud-based file storage.
+                </p>
 
-            <div class="project-tags">
-                <span>.NET</span>
-                <span>Blazor Server</span>
-                <span>SQL Server</span>
-                <span>Azure Blob</span>
+                <div class="project-tags">
+                    <span>.NET</span>
+                    <span>Blazor Server</span>
+                    <span>SQL Server</span>
+                    <span>Azure Blob</span>
+                </div>
             </div>
-        </div>
+        </a>
 
         <!-- PROJECT 2 -->
-        <div class="orbit-project-card">
-            <div class="project-icon project-2">
-                <i class="fa-solid fa-coins"></i>
-            </div>
+        <a class="orbit-project-link" href="/projects/logistics-scheduling">
+            <div class="orbit-project-card">
+                <div class="project-icon project-2">
+                    <i class="fa-solid fa-coins"></i>
+                </div>
 
-            <h3>Enterprise Loyalty & Credit Management Platform</h3>
-            <p class="project-desc">
-                Built a full transaction lifecycle system including points aging,
-                balance adjustments, reporting, filtering, and Excel exports,
-                backed by complex stored procedure logic.
-            </p>
+                <h3>Enterprise Loyalty & Credit Management Platform</h3>
+                <p class="project-desc">
+                    Built a full transaction lifecycle system including points aging,
+                    balance adjustments, reporting, filtering, and Excel exports,
+                    backed by complex stored procedure logic.
+                </p>
 
-            <div class="project-tags">
-                <span>C#</span>
-                <span>Blazor Server</span>
-                <span>SQL</span>
-                <span>ExcelJS</span>
+                <div class="project-tags">
+                    <span>C#</span>
+                    <span>Blazor Server</span>
+                    <span>SQL</span>
+                    <span>ExcelJS</span>
+                </div>
             </div>
-        </div>
+        </a>
 
         <!-- PROJECT 3 -->
-        <div class="orbit-project-card">
-            <div class="project-icon project-3">
-                <i class="fa-solid fa-car-side"></i>
-            </div>
+        <a class="orbit-project-link" href="/projects/logistics-scheduling">
+            <div class="orbit-project-card">
+                <div class="project-icon project-3">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
 
-            <h3>Fleet & Driver Management System</h3>
-            <p class="project-desc">
-                Administrative platform for managing drivers and vehicles,
-                enforcing quotas, validating subsidy programs,
-                handling document uploads, and supporting role-based access.
-            </p>
+                <h3>Fleet & Driver Management System</h3>
+                <p class="project-desc">
+                    Administrative platform for managing drivers and vehicles,
+                    enforcing quotas, validating subsidy programs,
+                    handling document uploads, and supporting role-based access.
+                </p>
 
-            <div class="project-tags">
-                <span>Blazor</span>
-                <span>Azure Blob</span>
-                <span>JS Interop</span>
-                <span>Database Design</span>
+                <div class="project-tags">
+                    <span>Blazor</span>
+                    <span>Azure Blob</span>
+                    <span>JS Interop</span>
+                    <span>Database Design</span>
+                </div>
             </div>
-        </div>
+        </a>
 
         <!-- PROJECT 4 -->
-        <div class="orbit-project-card">
-            <div class="project-icon project-4">
-                <i class="fa-solid fa-file-circle-exclamation"></i>
-            </div>
+        <a class="orbit-project-link" href="/projects/logistics-scheduling">
+            <div class="orbit-project-card">
+                <div class="project-icon project-4">
+                    <i class="fa-solid fa-file-circle-exclamation"></i>
+                </div>
 
-            <h3>Exception & Unfulfilled Order Management System</h3>
-            <p class="project-desc">
-                Role-based workflow for handling unfulfilled purchase orders,
-                bulk CSV imports, dynamic business rules,
-                approval flows, and image uploads with cloud storage.
-            </p>
+                <h3>Exception & Unfulfilled Order Management System</h3>
+                <p class="project-desc">
+                    Role-based workflow for handling unfulfilled purchase orders,
+                    bulk CSV imports, dynamic business rules,
+                    approval flows, and image uploads with cloud storage.
+                </p>
 
-            <div class="project-tags">
-                <span>.NET</span>
-                <span>Blazor</span>
-                <span>SQL Server</span>
-                <span>Azure Blob</span>
+                <div class="project-tags">
+                    <span>.NET</span>
+                    <span>Blazor</span>
+                    <span>SQL Server</span>
+                    <span>Azure Blob</span>
+                </div>
             </div>
-        </div>
+        </a>
 
         <!-- PROJECT 5 -->
-        <div class="orbit-project-card">
-            <div class="project-icon project-5">
-                <i class="fa-solid fa-file-pdf"></i>
-            </div>
+        <a class="orbit-project-link" href="/projects/logistics-scheduling">
+            <div class="orbit-project-card">
+                <div class="project-icon project-5">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
 
-            <h3>Automated Document Generation Service</h3>
-            <p class="project-desc">
-                Reusable PDF generation engine producing invoices and delivery notes
-                with strict layout requirements, multi-copy output,
-                and secure cloud storage integration.
-            </p>
+                <h3>Automated Document Generation Service</h3>
+                <p class="project-desc">
+                    Reusable PDF generation engine producing invoices and delivery notes
+                    with strict layout requirements, multi-copy output,
+                    and secure cloud storage integration.
+                </p>
 
-            <div class="project-tags">
-                <span>C#</span>
-                <span>PDFSharp</span>
-                <span>Azure Blob</span>
-                <span>Backend Services</span>
+                <div class="project-tags">
+                    <span>C#</span>
+                    <span>PDFSharp</span>
+                    <span>Azure Blob</span>
+                    <span>Backend Services</span>
+                </div>
             </div>
-        </div>
+        </a>
 
     </div>
 </div>

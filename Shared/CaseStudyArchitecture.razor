@@ -1,0 +1,29 @@
+﻿<section class="orbit-case-section orbit-architecture">
+
+    <h2>@Title</h2>
+
+    <p class="orbit-architecture-desc">
+        @Description
+    </p>
+
+    <div class="orbit-architecture-diagram">
+        @if (Diagram != null)
+        {
+            @Diagram
+        }
+        else
+        {
+            <div class="orbit-architecture-placeholder">
+                <span>Architecture Diagram</span>
+                <small>(High-level system flow)</small>
+            </div>
+        }
+    </div>
+
+</section>
+
+@code {
+    [Parameter] public string Title { get; set; } = "System Architecture";
+    [Parameter] public string Description { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? Diagram { get; set; }
+}

@@ -1,0 +1,89 @@
+﻿@namespace MyPortfolio_Anna.Pages.ProjectCases
+@page "/projects/unfulfilled-order-management"
+@layout CaseStudyLayout
+
+<Header>
+    <h1>Exception & Unfulfilled Order Management System</h1>
+    <p>
+        A role-based exception handling platform for managing
+        unfulfilled purchase orders, approvals, bulk imports,
+        and evidence attachments with strict business rule enforcement.
+    </p>
+
+    <CaseStudyTechStack Items="TechStack" />
+</Header>
+
+<CaseStudySection Title="Problem">
+    Unfulfilled purchase orders were previously handled through
+    manual communication and spreadsheets, resulting in
+    inconsistent decision-making, missing evidence,
+    and limited audit visibility for operational and finance teams.
+</CaseStudySection>
+
+<CaseStudySection Title="Constraints">
+    <ul>
+        <li>Different portals for supplier and warehouse users</li>
+        <li>Business rules vary by unfulfilled reason type</li>
+        <li>Attachments may be mandatory, optional, or disallowed</li>
+        <li>Bulk processing required for high-volume scenarios</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="Solution">
+    Built a structured exception management workflow with
+    role-based visibility, configurable business rules,
+    bulk CSV import support, approval handling,
+    and secure attachment uploads backed by cloud storage.
+</CaseStudySection>
+
+<CaseStudyArchitecture
+    Description="
+        The system separates supplier and warehouse workflows
+        at the UI level while enforcing business rules centrally.
+        Blazor Server manages dynamic form rendering,
+        SQL Server stored procedures validate rule compliance,
+        and Azure Blob Storage securely stores supporting evidence.
+    " />
+
+<CaseStudyOutcomes Items="Outcomes" />
+
+<CaseStudySection Title="Key Technical Decisions">
+    <ul>
+        <li>Rule-driven behavior controlled via database configuration</li>
+        <li>Dynamic UI rendering based on unfulfilled reason metadata</li>
+        <li>Bulk CSV import with row-level validation and error handling</li>
+        <li>Base64 image processing with blob storage integration</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="What I’d Improve Next">
+    Add configurable SLA timers for approvals,
+    introduce notification escalation rules,
+    and provide analytics dashboards for unfulfilled trends
+    by supplier, warehouse, and reason type.
+</CaseStudySection>
+
+<CaseStudyNavigation
+    PreviousUrl="/projects/fleet-driver-management"
+    PreviousLabel="Fleet & Driver Management System"
+    NextUrl="/projects/document-generation-service"
+    NextLabel="Automated Document Generation Service" />
+
+@code {
+    private List<CaseStudyTechStack.TechItem> TechStack = new()
+    {
+        new() { Name = "Blazor Server", Icon = "fa-solid fa-layer-group" },
+        new() { Name = ".NET", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "SQL Server", Icon = "fa-solid fa-database" },
+        new() { Name = "Azure Blob Storage", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "File Upload (JS Interop)", Icon = "fa-brands fa-js" }
+    };
+
+    private List<CaseStudyOutcomes.OutcomeItem> Outcomes = new()
+    {
+        new() { Value = "Rule-Based", Label = "Decision Enforcement" },
+        new() { Value = "Bulk", Label = "CSV Import Support" },
+        new() { Value = "Auditable", Label = "Approval Workflow" },
+        new() { Value = "Secure", Label = "Evidence Storage" }
+    };
+}

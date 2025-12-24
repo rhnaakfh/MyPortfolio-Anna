@@ -1,0 +1,90 @@
+﻿@namespace MyPortfolio_Anna.Pages.ProjectCases
+@page "/projects/logistics-scheduling"
+@layout CaseStudyLayout
+
+<Header>
+    <h1>Logistics Scheduling & Capacity Management System</h1>
+    <p>
+        A production-grade warehouse scheduling system that enforces
+        time-slot capacity, supplier booking rules, and real-time
+        operational visibility at scale.
+    </p>
+
+
+    <!-- Tech Stack belongs inside Header for correct layout flow -->
+    <CaseStudyTechStack Items="TechStack" />
+</Header>
+
+<CaseStudySection Title="Problem">
+    Warehouses struggled with overbooking, manual coordination,
+    and inconsistent supplier capacity enforcement, leading to
+    operational bottlenecks and poor capacity visibility.
+</CaseStudySection>
+
+<CaseStudySection Title="Constraints">
+    <ul>
+        <li>Multiple supplier types with different booking rules</li>
+        <li>Hard capacity limits per time-slot</li>
+        <li>High cancellation volume requiring auditability</li>
+        <li>Concurrent booking attempts during peak hours</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="Solution">
+    Designed and implemented a dynamic slot-generation system
+    with centralized validation using SQL Server stored procedures,
+    ensuring capacity rules are enforced consistently regardless
+    of user role or entry point.
+</CaseStudySection>
+
+<CaseStudyArchitecture
+    Description="
+        The system follows a layered architecture where
+        Blazor Server handles real-time UI interactions,
+        application services coordinate workflows,
+        and SQL Server enforces transactional integrity
+        and capacity validation at the database level.
+    " />
+
+<CaseStudyOutcomes Items="Outcomes" />
+
+<CaseStudySection Title="Key Technical Decisions">
+    <ul>
+        <li>Database-first validation to eliminate race conditions</li>
+        <li>Explicit separation of FIX vs NO-FIX supplier logic</li>
+        <li>Transactional stored procedures for booking and cancellation</li>
+        <li>Blob-based attachment storage to reduce database load</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="What I’d Improve Next">
+    Introduce background job processing for notifications,
+    implement read replicas for reporting workloads,
+    and add observability metrics for slot utilization trends.
+</CaseStudySection>
+
+<!-- Navigation must be LAST -->
+<CaseStudyNavigation
+    NextUrl="/projects/enterprise-loyalty"
+    NextLabel="Enterprise Loyalty & Credit Platform" />
+
+@code {
+    // Tech stack is defined in code-behind to avoid Razor parsing issues
+    private List<CaseStudyTechStack.TechItem> TechStack = new()
+    {
+        new() { Name = "Blazor Server", Icon = "fa-solid fa-layer-group" },
+        new() { Name = ".NET 7", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "SQL Server", Icon = "fa-solid fa-database" },
+        new() { Name = "Azure Blob Storage", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "JavaScript Interop", Icon = "fa-brands fa-js" }
+    };
+
+    private List<CaseStudyOutcomes.OutcomeItem> Outcomes = new()
+    {
+        new() { Value = "0", Label = "Overbooked Slots" },
+        new() { Value = "100%", Label = "Capacity Rule Enforcement" },
+        new() { Value = "↓ 60%", Label = "Manual Coordination" },
+        new() { Value = "Real-Time", Label = "Slot Visibility" }
+    };
+
+}

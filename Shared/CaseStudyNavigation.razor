@@ -1,0 +1,37 @@
+﻿<nav class="orbit-case-nav">
+
+    @if (!string.IsNullOrWhiteSpace(PreviousUrl))
+    {
+            <a class="orbit-case-nav-link prev" href="@PreviousUrl">
+                ← @PreviousLabel
+            </a>
+    }
+    else
+    {
+            <span></span>
+    }
+
+    <a class="orbit-case-nav-center" href="/projects">
+        Back to Projects
+    </a>
+
+    @if (!string.IsNullOrWhiteSpace(NextUrl))
+    {
+            <a class="orbit-case-nav-link next" href="@NextUrl">
+            @NextLabel →
+            </a>
+    }
+    else
+    {
+            <span></span>
+    }
+
+</nav>
+
+@code {
+    [Parameter] public string? PreviousUrl { get; set; }
+    [Parameter] public string? PreviousLabel { get; set; }
+
+    [Parameter] public string? NextUrl { get; set; }
+    [Parameter] public string? NextLabel { get; set; }
+}

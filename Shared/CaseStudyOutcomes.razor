@@ -1,0 +1,25 @@
+﻿<section class="orbit-case-outcomes">
+
+    <h2>Key Outcomes</h2>
+
+    <div class="orbit-outcomes-grid">
+        @foreach (var item in Items)
+        {
+            <div class="orbit-outcome-card">
+                <div class="orbit-outcome-value">@item.Value</div>
+                <div class="orbit-outcome-label">@item.Label</div>
+            </div>
+        }
+    </div>
+
+</section>
+
+@code {
+    [Parameter] public List<OutcomeItem> Items { get; set; } = new();
+
+    public class OutcomeItem
+    {
+        public string Value { get; set; } = string.Empty;
+        public string Label { get; set; } = string.Empty;
+    }
+}

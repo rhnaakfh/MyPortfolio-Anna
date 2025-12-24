@@ -1,0 +1,11 @@
+﻿<section class="orbit-case-section">
+    <h2>@Title</h2>
+    <div class="orbit-case-section-body">
+        @ChildContent
+    </div>
+</section>
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

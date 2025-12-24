@@ -1,0 +1,273 @@
+﻿/* ======================================================
+   CASE STUDY – LAYOUT (MATCH /projects)
+   ====================================================== */
+
+.orbit-case-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 96px 20px 120px;
+}
+
+.orbit-case-container {
+    max-width: 980px;
+    width: 100%;
+}
+
+/* ======================================================
+   CASE STUDY HERO TITLE
+   ====================================================== */
+
+.orbit-case-header {
+    position: relative;
+    margin-bottom: 64px;
+    padding-bottom: 40px;
+}
+
+    /* Subtle accent glow behind title */
+    .orbit-case-header::before {
+        content: "";
+        position: absolute;
+        inset: -60px -60px auto -60px;
+        height: 260px;
+        background: radial-gradient( 700px circle at 10% 15%, rgba(108,99,255,0.22), transparent 65% );
+        z-index: -1;
+    }
+
+    /* Title */
+    .orbit-case-header h1 {
+        font-size: 44px;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        margin-bottom: 18px;
+        color: var(--orbit-hero-title);
+    }
+
+    /* Description */
+    .orbit-case-header p {
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 760px;
+        color: var(--orbit-hero-subtitle);
+    }
+
+
+/* ======================================================
+   TECH STACK (MATCH /projects STYLE)
+   ====================================================== */
+
+.orbit-techstack {
+    margin-top: 28px;
+}
+
+/* "Tech Stack" label */
+.orbit-techstack-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orbit-hero-subtitle);
+    opacity: 0.8;
+}
+
+/* Badge container */
+.orbit-techstack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Individual badge */
+.orbit-tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--orbit-border);
+    color: var(--orbit-text);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    /* Icon inside badge */
+    .orbit-tech-badge i {
+        color: var(--orbit-accent);
+    }
+
+
+    /* Hover – subtle, not flashy */
+    .orbit-tech-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+
+/* ======================================================
+   SECTIONS – GLASS CARD STYLE
+   ====================================================== */
+
+.orbit-case-section {
+    margin-top: 56px;
+    padding: 36px 40px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--orbit-border);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    opacity: 0;
+    animation: orbitFadeUp 0.6s ease-out forwards;
+}
+
+    .orbit-case-section:nth-of-type(1) {
+        animation-delay: 0.05s;
+    }
+
+    .orbit-case-section:nth-of-type(2) {
+        animation-delay: 0.1s;
+    }
+
+    .orbit-case-section:nth-of-type(3) {
+        animation-delay: 0.15s;
+    }
+
+    .orbit-case-section:nth-of-type(4) {
+        animation-delay: 0.2s;
+    }
+
+    .orbit-case-section:nth-of-type(5) {
+        animation-delay: 0.25s;
+    }
+
+    .orbit-case-section h2 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .orbit-case-section p,
+    .orbit-case-section li {
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--orbit-hero-subtitle);
+    }
+
+    .orbit-case-section ul {
+        margin-top: 12px;
+        padding-left: 18px;
+    }
+
+    .orbit-case-section li {
+        margin-bottom: 8px;
+    }
+
+/* ======================================================
+   ARCHITECTURE – FEATURE CARD
+   ====================================================== */
+
+.orbit-architecture {
+    margin-top: 72px;
+    padding: 40px;
+    border-radius: 28px;
+    background: linear-gradient( 135deg, rgba(108,99,255,0.12), rgba(108,99,255,0.04) );
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--orbit-border);
+}
+
+.orbit-architecture-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 760px;
+    color: var(--orbit-hero-subtitle);
+}
+
+/* ======================================================
+   KEY OUTCOMES – KPI CARDS (MATCH PROJECT CARDS)
+   ====================================================== */
+
+.orbit-case-outcomes {
+    margin-top: 72px;
+}
+
+    .orbit-case-outcomes h2 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+
+.orbit-outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.orbit-outcome-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 32px 24px;
+    border: 1px solid var(--orbit-border);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .orbit-outcome-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+    }
+
+.orbit-outcome-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--orbit-accent);
+    margin-bottom: 6px;
+}
+
+.orbit-outcome-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orbit-hero-subtitle);
+}
+
+/* ======================================================
+   NAVIGATION – SAME STYLE LANGUAGE
+   ====================================================== */
+
+.orbit-case-nav {
+    margin-top: 96px;
+    padding-top: 40px;
+    border-top: 1px solid var(--orbit-border);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.orbit-case-nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--orbit-accent);
+    text-decoration: none;
+}
+
+    .orbit-case-nav-link:hover {
+        text-decoration: underline;
+    }
+
+.orbit-case-nav-center {
+    font-size: 12px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+/* ======================================================
+   ANIMATION
+   ====================================================== */
+
+

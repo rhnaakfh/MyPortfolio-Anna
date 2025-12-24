@@ -1,0 +1,30 @@
+﻿<div class="orbit-techstack">
+
+    <span class="orbit-techstack-label">
+        Tech Stack
+    </span>
+
+    <div class="orbit-techstack-list">
+        @foreach (var tech in Items)
+        {
+            <span class="orbit-tech-badge">
+                @if (!string.IsNullOrWhiteSpace(tech.Icon))
+                {
+                    <i class="@tech.Icon"></i>
+                }
+                @tech.Name
+            </span>
+        }
+    </div>
+
+</div>
+
+@code {
+    [Parameter] public List<TechItem> Items { get; set; } = new();
+
+    public class TechItem
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Icon { get; set; }
+    }
+}

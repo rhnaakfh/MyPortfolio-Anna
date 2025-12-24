@@ -3,58 +3,81 @@
 
 <MudAppBar Elevation="0" Class="orbit-navbar nav-sticky">
 
+    <!-- Mobile Hamburger -->
+    <MudHidden Breakpoint="Breakpoint.MdAndUp">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Class="orbit-hamburger"
+                       OnClick="ToggleDrawer"
+                       AriaLabel="Open menu" />
+    </MudHidden>
+
     <!-- Logo -->
     <MudText Typo="Typo.h5" Class="orbit-logo">
-        Anna Portfolio
+        <span class="orbit-logo-accent">Anna</span> Portfolio
     </MudText>
 
     <MudSpacer />
 
-    <!-- Main Nav -->
-    <nav class="orbit-navmenu">
-        <MudNavLink Href="/" Match="NavLinkMatch.All">
-            Home
-        </MudNavLink>
+    <!-- Desktop Nav -->
+    <MudHidden Breakpoint="Breakpoint.SmAndDown">
+        <nav class="orbit-navmenu">
+            <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
+            <MudNavLink Href="/about">About</MudNavLink>
+            <MudNavLink Href="/skills">Skills</MudNavLink>
+            <MudNavLink Href="/experience">Experience</MudNavLink>
+            <MudNavLink Href="/projects">Projects</MudNavLink>
+            <MudNavLink Href="/contact">Contact</MudNavLink>
+        </nav>
 
-        <MudNavLink Href="/about">
-            About
-        </MudNavLink>
-
-        <MudNavLink Href="/skills">
-            Skills
-        </MudNavLink>
-
-        <MudNavLink Href="/experience">
-            Experience
-        </MudNavLink>
-
-        <MudNavLink Href="/projects">
-            Projects
-        </MudNavLink>
-
-        <MudNavLink Href="/contact">
-            Contact
-        </MudNavLink>
-    </nav>
+        <div class="orbit-navbar-divider"></div>
+    </MudHidden>
 
     <!-- Theme Toggle -->
     <MudIconButton Class="orbit-theme-toggle"
                    Icon="@(_isDark ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)"
                    OnClick="ToggleTheme"
-                   Edge="Edge.End"
-                   AriaLabel="Toggle light/dark theme" />
+                   AriaLabel="Toggle theme" />
 </MudAppBar>
 
+<!-- ================= MOBILE DRAWER ================= -->
+<MudDrawer @bind-Open="_drawerOpen"
+           Anchor="Anchor.Right"
+           Variant="DrawerVariant.Temporary"
+           Elevation="16"
+           Class="orbit-mobile-drawer">
+
+    <div class="orbit-drawer-header">
+        <span class="orbit-logo-accent">Anna</span> Portfolio
+    </div>
+
+    <nav class="orbit-drawer-nav">
+        <MudNavLink Href="/" Match="NavLinkMatch.All" OnClick="CloseDrawer">Home</MudNavLink>
+        <MudNavLink Href="/about" OnClick="CloseDrawer">About</MudNavLink>
+        <MudNavLink Href="/skills" OnClick="CloseDrawer">Skills</MudNavLink>
+        <MudNavLink Href="/experience" OnClick="CloseDrawer">Experience</MudNavLink>
+        <MudNavLink Href="/projects" OnClick="CloseDrawer">Projects</MudNavLink>
+        <MudNavLink Href="/contact" OnClick="CloseDrawer">Contact</MudNavLink>
+    </nav>
+</MudDrawer>
+
 @code {
-    private bool _isDark = false;
+    private bool _drawerOpen;
+    private bool _isDark;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
-        {
-            // Calls JS function: setThemeMode(isDark)
             await JS.InvokeVoidAsync("setThemeMode", _isDark);
-        }
+    }
+
+    private void ToggleDrawer()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    private void CloseDrawer()
+    {
+        _drawerOpen = false;
     }
 
     private async Task ToggleTheme()

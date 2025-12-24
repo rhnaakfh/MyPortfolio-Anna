@@ -1,0 +1,21 @@
+﻿@inherits LayoutComponentBase
+
+<div class="orbit-case-wrapper">
+    <article class="orbit-case-container">
+
+        <!-- Title & Intro -->
+        <header class="orbit-case-header">
+            @Header
+        </header>
+
+        <!-- Main Content -->
+        <section class="orbit-case-content">
+            @Body
+        </section>
+
+    </article>
+</div>
+
+@code {
+    [Parameter] public RenderFragment? Header { get; set; }
+}

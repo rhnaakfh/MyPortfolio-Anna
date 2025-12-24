@@ -1,0 +1,88 @@
+﻿@namespace MyPortfolio_Anna.Pages.ProjectCases
+@page "/projects/fleet-driver-management"
+@layout CaseStudyLayout
+
+<Header>
+    <h1>Fleet & Driver Management System</h1>
+    <p>
+        An administrative platform for managing fleets, drivers,
+        vehicle documents, quotas, and subsidy program eligibility
+        with role-based access and audit-ready workflows.
+    </p>
+
+    <CaseStudyTechStack Items="TechStack" />
+</Header>
+
+<CaseStudySection Title="Problem">
+    Managing fleets and drivers across multiple programs was fragmented
+    and manual. Vehicle documents, driver eligibility, quota limits,
+    and subsidy rules were tracked inconsistently, increasing the risk
+    of compliance issues and operational errors.
+</CaseStudySection>
+
+<CaseStudySection Title="Constraints">
+    <ul>
+        <li>Strict subsidy program eligibility rules</li>
+        <li>Vehicle and driver data must be auditable</li>
+        <li>Document uploads required secure storage</li>
+        <li>Different access levels for admin and normal users</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="Solution">
+    Built a centralized fleet and driver management system
+    with role-based access, document upload handling,
+    quota enforcement logic, and real-time validation
+    of subsidy program eligibility.
+</CaseStudySection>
+
+<CaseStudyArchitecture
+    Description="
+        The system uses Blazor Server for secure administrative interfaces,
+        JavaScript interop for dynamic UI behavior,
+        Azure Blob Storage for document management,
+        and SQL Server to enforce data integrity, quotas,
+        and program eligibility rules.
+    " />
+
+<CaseStudyOutcomes Items="Outcomes" />
+
+<CaseStudySection Title="Key Technical Decisions">
+    <ul>
+        <li>Role-based UI rendering for admin vs non-admin users</li>
+        <li>Quota validation enforced before submission</li>
+        <li>Blob storage for document uploads to avoid DB bloat</li>
+        <li>JavaScript interop for file upload and dynamic UI control</li>
+    </ul>
+</CaseStudySection>
+
+<CaseStudySection Title="What I’d Improve Next">
+    Add automated document expiry alerts,
+    implement bulk driver import,
+    and introduce dashboard views for fleet utilization trends.
+</CaseStudySection>
+
+<CaseStudyNavigation
+    PreviousUrl="/projects/enterprise-loyalty"
+    PreviousLabel="Enterprise Loyalty & Credit Platform"
+    NextUrl="/projects/unfulfilled-order-management"
+    NextLabel="Exception & Unfulfilled Order Management" />
+
+@code {
+    private List<CaseStudyTechStack.TechItem> TechStack = new()
+    {
+        new() { Name = "Blazor Server", Icon = "fa-solid fa-layer-group" },
+        new() { Name = ".NET", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "SQL Server", Icon = "fa-solid fa-database" },
+        new() { Name = "Azure Blob Storage", Icon = "fa-brands fa-microsoft" },
+        new() { Name = "JavaScript Interop", Icon = "fa-brands fa-js" }
+    };
+
+    private List<CaseStudyOutcomes.OutcomeItem> Outcomes = new()
+    {
+        new() { Value = "Centralized", Label = "Fleet & Driver Records" },
+        new() { Value = "Role-Based", Label = "Access Control" },
+        new() { Value = "Automated", Label = "Quota Validation" },
+        new() { Value = "Secure", Label = "Document Storage" }
+    };
+}
